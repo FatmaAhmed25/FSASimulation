@@ -3,8 +3,8 @@ import java.util.Map;
 
 class Problem3 extends DFASimulation {
     private static final Map<String, Map<Character, String>> transitionTable = new HashMap<>();
-    private static final String START_STATE = "q0";
-    private static final String[] ACCEPTING_STATES = {"q1"};
+    private static final String startState = "q0";
+    private static final String[] acceptingStates = {"q1"};
 
     static {
         // Define transition table
@@ -15,7 +15,7 @@ class Problem3 extends DFASimulation {
 
     @Override
     public boolean isAccepted(String input) {
-        String currentState = START_STATE;
+        String currentState = startState;
 
         for (char c : input.toCharArray()) {
             if (!transitionTable.containsKey(currentState) || !transitionTable.get(currentState).containsKey(c)) {
@@ -25,7 +25,7 @@ class Problem3 extends DFASimulation {
         }
 
         // Check if the final state is one of the accepting states
-        for (String state : ACCEPTING_STATES) {
+        for (String state : acceptingStates) {
             if (currentState.equals(state)) {
                 return true;
             }

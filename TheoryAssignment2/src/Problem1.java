@@ -10,7 +10,7 @@ class Problem1 extends DFASimulation {
         // Define transition table
         transitionTable.put("q0", Map.of('a', "q0", 'b', "q1"));
         transitionTable.put("q1", Map.of('a', "q2", 'b', "q1"));
-        //transitionTable.put("q2", Map.of('a', "q0", 'b', "q0"));
+        transitionTable.put("q2", Map.of('a', "q2", 'b', "q2"));
     }
 
     @Override
