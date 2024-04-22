@@ -14,6 +14,8 @@ public class Main {
         problems[2] = new Problem3();
         problems[3] = new Problem4();
         problems[4] = new Problem5();
+        problems[5] = new Problem6();
+
         problems[9]=new Problem10();
 
 
@@ -27,7 +29,7 @@ public class Main {
                     //bw.write("x\n"); // Mark end of problem input in output file
                     continue;
                 }
-                int problemNumber = 10;
+                int problemNumber = 6;
                 while (!(line = br.readLine()).equals("end")) {
                     boolean accepted = problems[problemNumber - 1].isAccepted(line);
                     bw.write(problemNumber + "\n" + accepted + "\n");
