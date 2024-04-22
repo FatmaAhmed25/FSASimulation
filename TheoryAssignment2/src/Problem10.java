@@ -1,16 +1,19 @@
 import java.util.HashMap;
 import java.util.Map;
 
-class Problem1 extends DFASimulation {
+class Problem10 extends DFASimulation {
     private static final Map<String, Map<Character, String>> transitionTable = new HashMap<>();
-    private static final String startState = "q0";
-    private static final String[] acceptingStates = {"q0","q1"};
+    private static final String startState = "A";
+    private static final String[] acceptingStates = {"AC","BC","ABC"};
 
     static {
         // Define transition table
-        transitionTable.put("q0", Map.of('a', "q0", 'b', "q1"));
-        transitionTable.put("q1", Map.of('a', "q2", 'b', "q1"));
-        //transitionTable.put("q2", Map.of('a', "q0", 'b', "q0"));
+        transitionTable.put("A", Map.of('0', "B", '1', "AC"));
+        transitionTable.put("B", Map.of('0', "D", '1', "BC"));
+        transitionTable.put("D", Map.of('0', "D", '1', "D"));
+        transitionTable.put("AC", Map.of('0', "B", '1', "ABC"));
+        transitionTable.put("BC", Map.of('0', "B", '1', "BC"));
+        transitionTable.put("ABC", Map.of('0', "B", '1', "ABC"));
     }
 
     @Override
