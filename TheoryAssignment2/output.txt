@@ -41,3 +41,10 @@ False
 x
 
 7
+True
+True
+True
+False
+x
+
+8

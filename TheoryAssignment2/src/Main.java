@@ -14,7 +14,7 @@ public class Main {
         problems[3] = new Problem4();
         problems[4] = new Problem5();
         problems[5] = new Problem6();
-//        problems[6] = new Problem7();
+        problems[6] = new Problem7();
 //        problems[7] = new Problem8();
 //        problems[8] = new Problem9();
         problems[9] = new Problem10();
