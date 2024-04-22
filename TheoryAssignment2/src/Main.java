@@ -7,7 +7,6 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
-        // Define array of problem-solving classes
         DFASimulation[] problems = new DFASimulation[10];
         problems[0] = new Problem1();
         problems[1] = new Problem2();
@@ -15,25 +14,28 @@ public class Main {
         problems[3] = new Problem4();
         problems[4] = new Problem5();
         problems[5] = new Problem6();
-
-        problems[9]=new Problem10();
-
-
-        // Add solutions for the other problems similarly
+//        problems[6] = new Problem7();
+//        problems[7] = new Problem8();
+//        problems[8] = new Problem9();
+        problems[9] = new Problem10();
 
         try (BufferedReader br = new BufferedReader(new FileReader("input.txt"));
              BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
-                if (line.equals("end")) {
-                    //bw.write("x\n"); // Mark end of problem input in output file
+                if (line.trim().isEmpty()) {
                     continue;
                 }
-                int problemNumber = 6;
-                while (!(line = br.readLine()).equals("end")) {
+                int problemNumber = Integer.parseInt(line.trim());
+                bw.write(problemNumber+"\n");
+                while (!(line = br.readLine()).toLowerCase().equals("end") ) {
                     boolean accepted = problems[problemNumber - 1].isAccepted(line);
-                    bw.write(problemNumber + "\n" + accepted + "\n");
+                    if (accepted)
+                        bw.write("True" + "\n");
+                    else
+                        bw.write("False" + "\n");
                 }
+                bw.write("x\n\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
