@@ -3,17 +3,17 @@ import java.util.Map;
 
 class Problem10 extends DFASimulation {
     private static final Map<String, Map<Character, String>> transitionTable = new HashMap<>();
-    private static final String startState = "A";
-    private static final String[] acceptingStates = {"AC","BC","ABC"};
+    private static final String startState = "q0";
+    private static final String[] acceptingStates = {"q0q2","q1q2","q0q1q2"};
 
     static {
         // Define transition table
-        transitionTable.put("A", Map.of('0', "B", '1', "AC"));
-        transitionTable.put("B", Map.of('0', "D", '1', "BC"));
-        transitionTable.put("D", Map.of('0', "D", '1', "D"));
-        transitionTable.put("AC", Map.of('0', "B", '1', "ABC"));
-        transitionTable.put("BC", Map.of('0', "B", '1', "BC"));
-        transitionTable.put("ABC", Map.of('0', "B", '1', "ABC"));
+        transitionTable.put("q0", Map.of('0', "q1", '1', "q0q2"));
+        transitionTable.put("q1", Map.of('0', "q4", '1', "q1q2"));
+        transitionTable.put("q4", Map.of('0', "q4", '1', "q4"));
+        transitionTable.put("q0q2", Map.of('0', "q1", '1', "q0q1q2"));
+        transitionTable.put("q1q2", Map.of('0', "q1", '1', "q1q2"));
+        transitionTable.put("q0q1q2", Map.of('0', "q1", '1', "q0q1q2"));
     }
 
     @Override
