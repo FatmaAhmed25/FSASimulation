@@ -7,7 +7,6 @@ class Problem4 extends DFASimulation {
     private static final String[] ACCEPTING_STATES = {"q0","q1","q2"};
 
     static {
-        // Define transition table
         transitionTable.put("q0", Map.of('a', "q1", 'b', "q2"));
         transitionTable.put("q1", Map.of('a', "q1", 'b', "q3"));
         transitionTable.put("q2", Map.of('a', "q4", 'b', "q2"));
@@ -22,12 +21,11 @@ class Problem4 extends DFASimulation {
 
         for (char c : input.toCharArray()) {
             if (!transitionTable.containsKey(currentState) || !transitionTable.get(currentState).containsKey(c)) {
-                return false; // No valid transition for current state and input symbol
+                return false;
             }
             currentState = transitionTable.get(currentState).get(c);
         }
 
-        // Check if the final state is one of the accepting states
         for (String state : ACCEPTING_STATES) {
             if (currentState.equals(state)) {
                 return true;
